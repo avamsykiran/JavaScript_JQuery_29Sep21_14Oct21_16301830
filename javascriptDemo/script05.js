@@ -1,7 +1,7 @@
 
 let s = "Hello World";
 
-console.log(s.length)
+console.log(s.length) 
 console.log(s.toUpperCase())
 console.log(s.toLowerCase())
 console.log(s.substr(2,7)) //gives 7 charrecters starting from 2nd

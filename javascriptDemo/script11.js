@@ -34,13 +34,13 @@ let emps = [
 
 console.log(emps);
 
-emps.pop();
+emps.pop();//deleteing the last ele of the array
 console.log(emps);
 
-emps.splice(4,2);
+emps.splice(4,2);//delete the 2 eles starting from 4th index
 console.log(emps);
 
-emps.push(new Emp(getNextId(),"Koaml",78900));
+emps.push(new Emp(getNextId(),"Koaml",78900)); //adds an ele at the end of the array
 console.log(emps);
 
 emps.sort((e1,e2) => e1.sal>e2.sal?1:(e1.sal<e2.sal?-1:0));
@@ -59,14 +59,6 @@ let names = emps.map(e => e.name);
 console.log(names)
 
 console.log(emps.filter(e => e.sal >= 20000))
-/*
-let nums = [1,2,3,4,5]
-let add = (n1,n2) => n1+n2;
-let sum = nums.reduce( add ) //  add(add(add(add(add(1,2),3),4),5)
-*/
 
 let maxSalEmp = emps.reduce( (e1,e2) => e1.sal>e2.sal?e1:e2 )
 console.log(maxSalEmp);
-
-
-

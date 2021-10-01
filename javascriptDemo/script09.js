@@ -32,8 +32,8 @@ let cir = new Circle(3.45);
 console.log(rect);
 console.log(cir);
 
-console.log(estimatePaintingCost.call(rect,10,0.1));
-console.log(estimatePaintingCost.call(cir,10,0.1));
+console.log(estimatePaintingCost.call(rect,10,0.1));//rect.estimatePaintingCost(10,0.1)
+console.log(estimatePaintingCost.call(cir,10,0.1));//cir.estimatePaintingCost(10,0.1)
 
 console.log(estimatePaintingCost.apply(rect,[10,0.1]));
 console.log(estimatePaintingCost.apply(cir,[10,0.1]));

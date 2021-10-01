@@ -1,8 +1,12 @@
 //Template Literals
 
 let c1 = {cid:101,name:'Vamsy',mobile:'9052224753',email:'vamsy@gmail.com',dob:new Date('1987-01-01')};
-console.log("Hello "+c1.name+"! It is good to call you at "+c1.mobile);
-console.log(`Hello ${c1.name}! It is good to call you at ${c1.mobile}`);
+
+let msg = "Hello "+c1.name+"! It is good to call you at "+c1.mobile;
+console.log(msg);
+
+let msg2= `Hello ${c1.name}! It is good to call you at ${c1.mobile}`;
+console.log(msg2);
 
 //Destructured assignment
 

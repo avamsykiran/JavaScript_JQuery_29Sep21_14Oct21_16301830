@@ -1,59 +1,34 @@
-//async and await
 
-/*let countFactors = n => new Promise((resolve,reject) => {
-    console.log(`counting the factors of ${n}...`)
+const countFactors = async n => {
 
-    if(n===0){
-        reject("Zero si neither prime nor composite");
-        return;
-    }
+    console.log(`Counting factors of ${n}`)
 
-    let count =2;
-    let f = 2;
-    let handle = setInterval(()=>{
-        if(n%f==0){
-            count++;
-        }
-        f++;
-        if(f>n/2){
-            clearInterval(handle);
-            resolve(count);
-        }
-    },500);
-} )*/
+    if(n===0)
+        throw new Error("Zero has no factors");
 
-let countFactors = async n => {
-    console.log(`counting the factors of ${n}...`)
-
-    if (n === 0) {
-        throw new Error("Zero is neither prime nor composite");
-    }
-
-    let count = 2;
-    for (let i = 2; i <= n / 2; i++) {
-        if (n % i == 0) {
+    let count=2;
+    for(let i=2;i<n/2;i++){
+        if(n%i==0){
             count++;
         }
     }
+
+    console.log(`Counting factors of ${n} is done`)
+
     return count;
 }
 
-let pickPrimes = async (...nums) => {
-    let noOfPrimes = 0;
-    for (let n of nums) {
-        try {
-            let c = await countFactors(n);
-            if (c === 2) {
-                console.log(`${n} is Prime`)
-                noOfPrimes++;
-            } else {
-                console.log(`${n} is not Prime as it has ${c} factors`)
-            }
-        } catch (error) {
-            console.log(error.message);
-        }
-    }
-    return noOfPrimes;
-}
+countFactors(1024).then(
+    count => console.log(`No of factors of 1024 : ${count}`),
+    err => console.log(err.message)
+);
 
-pickPrimes(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10).then(priemsCount => console.log(`${priemsCount} primes found`))
+countFactors(4617).then(
+    count => console.log(`No of factors of 4617 : ${count}`),
+    err => console.log(err.message)
+);
+
+countFactors(0).then(
+    count => console.log(`No of factors of 0 : ${count}`),
+    err => console.log(err.message)
+);

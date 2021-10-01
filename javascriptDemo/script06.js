@@ -11,7 +11,6 @@ const greetUser = function(user){
 const welcome = () => "Hai! You are welcome!";
 
 const welcomeUser = user => "Hello! "+user+" you are welcome";
-
 const greetByTime = () => {
     let h = (new Date()).getHours();
     
