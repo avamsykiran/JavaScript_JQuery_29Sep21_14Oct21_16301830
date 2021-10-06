@@ -505,7 +505,7 @@ JavaScript (ES6)
 
         Browser Object Model
             window
-                navigatior
+                navigator
                     appName
                     appCodeName
                 history
@@ -515,7 +515,7 @@ JavaScript (ES6)
                     href
                     hostname
                     protocol
-                    assign(yrl)
+                    assign(url)
                 document
 
                 alert()

@@ -1,18 +1,6 @@
-console.log("This is inventory mangement system module");
+import invService from './inventoryService.js';
 
-let items = [
-    {id:1,name:'A4 Sheets',unit:'Bundle',rate:560},
-    {id:2,name:'Ink Jet Catridge Color',unit:'Piece',rate:1560},
-    {id:3,name:'Laser Catridge BW',unit:'Piece',rate:860},
-    {id:4,name:'Laser Catridge Color',unit:'Piece',rate:1560},
-    {id:5,name:'Board Pins',unit:'Pack Of 50',rate:160},
-    {id:6,name:'Staples',unit:'Box of 1000',rate:60},
-    {id:7,name:'Pen Holder',unit:'Piece',rate:360},
-    {id:8,name:'Pen',unit:'Pack Of 10',rate:2060},
-    {id:9,name:'Writing Pad',unit:'Piece',rate:340}
-];
-
-displayItems = () => {
+const displayItems = () => {
     console.log("Page load invoked");
 
     let dataTable = document.querySelector("#content>table");
@@ -23,6 +11,8 @@ displayItems = () => {
     }
 
     dataTableBody = document.createElement("tbody");
+
+    let items = invService.getAll();
 
     items.forEach(item => {
         let tr = document.createElement("tr");
@@ -53,7 +43,7 @@ displayItems = () => {
 
 }
 
-addItem = () => {
+const addItem = () => {
 
     let tbId = document.querySelector("#tbItemId");
     let tbName = document.querySelector("#tbItemName");
@@ -72,7 +62,7 @@ addItem = () => {
         return;
     }
 
-    items.push(item);
+    invService.add(item);
 
     displayItems();
 
@@ -81,3 +71,5 @@ addItem = () => {
     tbUnit.value="";
     tbRate.value="";
 }
+
+export default { displayItems, addItem }
