@@ -546,7 +546,17 @@ JavaScript (ES6)
 HTML 5 Jvascript API
 ---------------------------------------------------------------------------
         GeoLocation
+            navigator.geolocation
         Canvas
-        SVG
         Drag and Drop
         Web Stoirage
+            localStorage
+                .setItem("key","value")
+                .getItem("key")
+                .removeItem("key")
+                .clear()
+            sessionStorage
+                .setItem("key","value")
+                .getItem("key")
+                .removeItem("key")
+                .clear()

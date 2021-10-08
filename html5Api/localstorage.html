@@ -1,0 +1,50 @@
+<!Doctype html!>
+
+<html>
+
+<head>
+    <title>Local Storage</title>
+    <script>
+        let friends=[];
+
+        const add = event => {
+            let txtBox = document.querySelector("#friendName");
+            friends.push(txtBox.value);
+            txtBox.value="";
+            localStorage.setItem("friends",JSON.stringify(friends));
+            display(); 
+        }
+
+        const display = () => {
+           
+            if(localStorage.getItem("friends"))
+                friends = JSON.parse(localStorage.getItem("friends"));
+
+            let list = document.querySelector("#friendsList");
+
+            for(let child of list.children)
+                list.removeChild(child);
+            
+            for(let f of friends){
+                let li = document.createElement("li");
+                li.textContent=f;
+                list.appendChild(li);
+            }     
+            
+        }
+    </script>
+</head>
+
+<body onload="display()">
+    <h2>Local Storage</h2>
+
+    <form>
+        <input type="text" id="friendName" placeholder="Friend's Name "/>
+        <button type="button" onclick="add()">ADD</button>
+    </form>
+
+    <ol id="friendsList">
+    </ol>
+</body>
+
+</html>
