@@ -1,6 +1,8 @@
 <html>
 	<head>
-		<script src="jquery-3.1.0.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	
 		<style>
 			.deadStock{
 				background-color:#ff0000;
@@ -21,7 +23,7 @@
 			}
 		</style>
 		<script>
-			var daySales =[
+			let daySales =[
 			 {icode:101,stockInHand:25,stockSold:12},
 			 {icode:102,stockInHand:25,stockSold:25},
 			 {icode:103,stockInHand:25,stockSold:2},
@@ -30,30 +32,30 @@
 			 {icode:106,stockInHand:25,stockSold:23}
 			];
 			
-			var loadData = function(){
-				var dataArea = $("#stockRepTable>tbody");
+			const loadData = () => {
+				let dataArea = $("#stockRepTable>tbody");
 				
-				for(i=0;i<daySales.length;i++){
-					var col1 = $("<td></td>");
-					var col2 = $("<td></td>");
-					var col3 = $("<td></td>");
-					var col4 = $("<td></td>");
-					var row = $("<tr></tr>");				
+				for(let daySale of daySales){
+					let col1 = $("<td></td>");
+					let col2 = $("<td></td>");
+					let col3 = $("<td></td>");
+					let col4 = $("<td></td>");
+					let row = $("<tr></tr>");				
 					
-					var stockBal = daySales[i].stockInHand-daySales[i].stockSold;
+					let stockBal = daySale.stockInHand-daySale.stockSold;
 					
-					col1.text(daySales[i].icode);
-					col2.text(daySales[i].stockInHand);
-					col3.text(daySales[i].stockSold);
+					col1.text(daySale.icode);
+					col2.text(daySale.stockInHand);
+					col3.text(daySale.stockSold);
 					col4.text(stockBal);
 					col1.appendTo(row);
 					col2.appendTo(row);
 					col3.appendTo(row);
 					col4.appendTo(row);
 					
-					if(stockBal>=((2.0/3.0)*daySales[i].stockInHand))
+					if(stockBal>=((2.0/3.0)*daySale.stockInHand))
 						col4.addClass('deadStock');
-					else if(stockBal>=((1.0/3.0)*daySales[i].stockInHand))
+					else if(stockBal>=((1.0/3.0)*daySale.stockInHand))
 						col4.addClass('moderate');
 					else
 						col4.addClass('fastMoving');
